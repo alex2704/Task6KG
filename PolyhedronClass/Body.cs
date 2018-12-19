@@ -183,5 +183,58 @@ namespace PolyhedronClass
             }
             Edges = GetEdges(Faces);
         }
+        private void initDodecahedron()
+        {
+            double alpha = Math.Sqrt(2.0 / (3.0 + Math.Sqrt(5.0)));
+            double beta = 1.0 + Math.Sqrt(6.0 / (3.0 + Math.Sqrt(5.0)) -
+                2.0 + 2.0 * Math.Sqrt(2.0 / (3.0 + Math.Sqrt(5.0))));
+            dodec[0, 0] = -alpha; dodec[0, 1] = 0; dodec[0, 2] = beta;
+            dodec[1, 0] = alpha; dodec[1, 1] = 0; dodec[1, 2] = beta;
+            dodec[2, 0] = -1; dodec[2, 1] = -1; dodec[2, 2] = -1;
+            dodec[3, 0] = -1; dodec[3, 1] = -1; dodec[3, 2] = 1;
+            dodec[4, 0] = -1; dodec[4, 1] = 1; dodec[4, 2] = -1;
+            dodec[5, 0] = -1; dodec[5, 1] = 1; dodec[5, 2] = 1;
+            dodec[6, 0] = 1; dodec[6, 1] = -1; dodec[6, 2] = -1;
+            dodec[7, 0] = 1; dodec[7, 1] = -1; dodec[7, 2] = 1;
+            dodec[8, 0] = 1; dodec[8, 1] = 1; dodec[8, 2] = -1;
+            dodec[9, 0] = 1; dodec[9, 1] = 1; dodec[9, 2] = 1;
+            dodec[10, 0] = beta; dodec[10, 1] = alpha; dodec[10, 2] = 0;
+            dodec[11, 0] = beta; dodec[11, 1] = -alpha; dodec[11, 2] = 0;
+            dodec[12, 0] = -beta; dodec[12, 1] = alpha; dodec[12, 2] = 0;
+            dodec[13, 0] = -beta; dodec[13, 1] = -alpha; dodec[13, 2] = 0;
+            dodec[14, 0] = -alpha; dodec[14, 1] = 0; dodec[14, 2] = -beta;
+            dodec[15, 0] = alpha; dodec[15, 1] = 0; dodec[15, 2] = -beta;
+            dodec[16, 0] = 0; dodec[16, 1] = beta; dodec[16, 2] = alpha;
+            dodec[17, 0] = 0; dodec[17, 1] = beta; dodec[17, 2] = -alpha;
+            dodec[18, 0] = 0; dodec[18, 1] = -beta; dodec[18, 2] = alpha;
+            dodec[19, 0] = 0; dodec[19, 1] = -beta; dodec[19, 2] = -alpha;
+        }
+
+        private void Dodecahedron(double Size)
+        {
+            Vertexs = new double[20][];
+            VertexsT = new double[20][];
+            for (int i = 0; i < 20; i++)
+            {
+                Vertexs[i] = new double[4];
+                VertexsT[i] = new double[4];
+            }
+            initDodecahedron();
+            for (int i = 0; i < 20; i++)
+                for (int j = 0; j < 3; j++)
+                    Vertexs[i][j] = Size * dodec[i, j];
+
+            for (int i = 0; i < 20; i++)
+                Vertexs[i][3] = 1;
+
+            Faces = new Face[12];
+            for (int i = 0; i < 12; i++)
+            {
+                Faces[i].p = new int[5];
+                for (int j = 0; j < 5; j++)
+                    Faces[i].p[j] = DodecIndex[i, j];
+            }
+            Edges = GetEdges(Faces);
+        }
     }
 }
