@@ -30,13 +30,18 @@
         {
             this.SuspendLayout();
             // 
-            // MainForm
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "MainForm";
+            this.Name = "FormMain";
             this.Text = "Вращение многогранника";
+            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseUp);
             this.ResumeLayout(false);
 
         }

@@ -82,6 +82,7 @@
             this.firstPerspectivePoint_sb.Name = "firstPerspectivePoint_sb";
             this.firstPerspectivePoint_sb.Size = new System.Drawing.Size(294, 21);
             this.firstPerspectivePoint_sb.TabIndex = 0;
+            this.firstPerspectivePoint_sb.Scroll += new System.Windows.Forms.ScrollEventHandler(this.firstPerspectivePoint_sb_Scroll);
             // 
             // groupBox1
             // 
@@ -105,6 +106,7 @@
             this.PerspectiveVisible_cb.TabIndex = 1;
             this.PerspectiveVisible_cb.Text = "Перспектива";
             this.PerspectiveVisible_cb.UseVisualStyleBackColor = true;
+            this.PerspectiveVisible_cb.CheckedChanged += new System.EventHandler(this.PerspectiveVisible_cb_CheckedChanged);
             // 
             // OXYZ_visible
             // 
@@ -116,6 +118,7 @@
             this.OXYZ_visible.TabIndex = 0;
             this.OXYZ_visible.Text = "Оси";
             this.OXYZ_visible.UseVisualStyleBackColor = true;
+            this.OXYZ_visible.CheckedChanged += new System.EventHandler(this.OXYZ_visible_CheckedChanged);
             // 
             // tabPage3
             // 
@@ -136,6 +139,7 @@
             this.secodPerspectivePoint_sb.Name = "secodPerspectivePoint_sb";
             this.secodPerspectivePoint_sb.Size = new System.Drawing.Size(294, 21);
             this.secodPerspectivePoint_sb.TabIndex = 1;
+            this.secodPerspectivePoint_sb.Scroll += new System.Windows.Forms.ScrollEventHandler(this.secodPerspectivePoint_sb_Scroll);
             // 
             // label1
             // 
@@ -170,6 +174,7 @@
             this.radioButtonStereo.TabIndex = 2;
             this.radioButtonStereo.Text = "стерео";
             this.radioButtonStereo.UseVisualStyleBackColor = true;
+            this.radioButtonStereo.CheckedChanged += new System.EventHandler(this.radioButtonStereo_CheckedChanged);
             // 
             // radioButtonFace
             // 
@@ -181,6 +186,7 @@
             this.radioButtonFace.TabIndex = 1;
             this.radioButtonFace.Text = "грани";
             this.radioButtonFace.UseVisualStyleBackColor = true;
+            this.radioButtonFace.CheckedChanged += new System.EventHandler(this.radioButtonFace_CheckedChanged);
             // 
             // radioButtonEdge
             // 
@@ -194,6 +200,7 @@
             this.radioButtonEdge.TabStop = true;
             this.radioButtonEdge.Text = "ребра";
             this.radioButtonEdge.UseVisualStyleBackColor = true;
+            this.radioButtonEdge.CheckedChanged += new System.EventHandler(this.radioButtonEdge_CheckedChanged);
             // 
             // noVector_rb
             // 
@@ -238,6 +245,7 @@
             this.radioButtonHexaedr.TabStop = true;
             this.radioButtonHexaedr.Text = "Гексаэдр";
             this.radioButtonHexaedr.UseVisualStyleBackColor = true;
+            this.radioButtonHexaedr.CheckedChanged += new System.EventHandler(this.radioButtonTetraedr_CheckedChanged);
             // 
             // radioButtonDodecahedron
             // 
@@ -249,6 +257,7 @@
             this.radioButtonDodecahedron.TabStop = true;
             this.radioButtonDodecahedron.Text = "Додекаэдр";
             this.radioButtonDodecahedron.UseVisualStyleBackColor = true;
+            this.radioButtonDodecahedron.CheckedChanged += new System.EventHandler(this.radioButtonTetraedr_CheckedChanged);
             // 
             // radioButtonXaxahedron
             // 
@@ -260,6 +269,7 @@
             this.radioButtonXaxahedron.TabStop = true;
             this.radioButtonXaxahedron.Text = "Иксоаэдр";
             this.radioButtonXaxahedron.UseVisualStyleBackColor = true;
+            this.radioButtonXaxahedron.CheckedChanged += new System.EventHandler(this.radioButtonTetraedr_CheckedChanged);
             // 
             // radioButtonOctaedr
             // 
@@ -271,6 +281,7 @@
             this.radioButtonOctaedr.TabStop = true;
             this.radioButtonOctaedr.Text = "Октаэдр";
             this.radioButtonOctaedr.UseVisualStyleBackColor = true;
+            this.radioButtonOctaedr.CheckedChanged += new System.EventHandler(this.radioButtonTetraedr_CheckedChanged);
             // 
             // speed_Box
             // 
@@ -289,6 +300,7 @@
             0,
             0,
             65536});
+            this.speed_Box.ValueChanged += new System.EventHandler(this.speed_Box_ValueChanged);
             // 
             // groupBox4
             // 
@@ -352,6 +364,7 @@
             this.rotateOXYZ.TabIndex = 1;
             this.rotateOXYZ.Text = "осей";
             this.rotateOXYZ.UseVisualStyleBackColor = true;
+            this.rotateOXYZ.CheckedChanged += new System.EventHandler(this.rotateOXYZ_CheckedChanged);
             // 
             // tabPage2
             // 
