@@ -266,5 +266,37 @@ namespace PolyhedronClass
             }
             Edges = GetEdges(Faces);
         }
+        private void Tetraedr(double Size)
+        {
+            Vertexs = new double[4][];
+            VertexsT = new double[4][];
+            for (int i = 0; i < 4; i++)
+            {
+                Vertexs[i] = new double[4];
+                VertexsT[i] = new double[4];
+            }
+
+            Vertexs[0][0] = Size; Vertexs[0][1] = -Size; Vertexs[0][2] = -Size;
+            Vertexs[1][0] = Size; Vertexs[1][1] = Size; Vertexs[1][2] = Size;
+            Vertexs[2][0] = -Size; Vertexs[2][1] = -Size; Vertexs[2][2] = Size;
+            Vertexs[3][0] = -Size; Vertexs[3][1] = Size; Vertexs[3][2] = -Size;
+            for (int i = 0; i < 4; i++)
+                Vertexs[i][3] = 1;
+            Edges = new Edge[6];
+            Edges[0].p1 = 0; Edges[0].p2 = 1;
+            Edges[1].p1 = 0; Edges[1].p2 = 2;
+            Edges[2].p1 = 1; Edges[2].p2 = 2;
+            Edges[3].p1 = 3; Edges[3].p2 = 0;
+            Edges[4].p1 = 3; Edges[4].p2 = 1;
+            Edges[5].p1 = 3; Edges[5].p2 = 2;
+            Faces = new Face[4];
+            for (int i = 0; i < 4; i++)
+                Faces[i].p = new int[3];
+
+            Faces[0].p[0] = 0; Faces[0].p[1] = 1; Faces[0].p[2] = 2;
+            Faces[1].p[0] = 1; Faces[1].p[1] = 3; Faces[1].p[2] = 2;
+            Faces[2].p[0] = 0; Faces[2].p[1] = 2; Faces[2].p[2] = 3;
+            Faces[3].p[0] = 0; Faces[3].p[1] = 3; Faces[3].p[2] = 1;
+        }
     }
 }
