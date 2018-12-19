@@ -103,5 +103,34 @@ namespace PolyhedronClass
                     break;
             }
         }
+        Edge[] GetEdges(Face[] Sides) // по граням строит ребра
+        {
+            Edge[] Result = new Edge[0];
+            int Ls = Sides.Length;
+            int Le = 0;
+            for (int i = 0; i < Ls; i++)
+            {
+                int L = Sides[i].p.Length;
+                for (int j = 0; j < L; j++)
+                {
+                    bool Ok = false; int k = -1;
+                    while ((k < Le - 1) && !Ok)
+                    {
+                        k++;
+                        Ok = ((Result[k].p1 == Sides[i].p[j]) &
+                              (Result[k].p2 == Sides[i].p[(j + 1) % L])) |
+                             ((Result[k].p2 == Sides[i].p[j]) &
+                              (Result[k].p1 == Sides[i].p[(j + 1) % L]));
+                    }
+                    if (!Ok)
+                    {
+                        Array.Resize<Edge>(ref Result, ++Le);
+                        Result[Le - 1].p1 = Sides[i].p[j];
+                        Result[Le - 1].p2 = Sides[i].p[(j + 1) % L];
+                    }
+                }
+            }
+            return Result;
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace PolyhedronClass
 {
     public class Edge
     {
+        public int p1,p2;
     }
 }

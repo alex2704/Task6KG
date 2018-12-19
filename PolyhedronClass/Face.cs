@@ -8,5 +8,7 @@ namespace PolyhedronClass
 {
     public class Face
     {
+        public int[] p; //номера вершин
+        public double[] N; //коэффициенты уравнения плоскости
     }
 }
