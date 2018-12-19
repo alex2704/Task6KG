@@ -32,5 +32,22 @@ namespace PolyhedronClass
         public Font myFont = new Font("Courier", 10);
         public static Body body;
         public static Body body0;
+        public PlatonBody(int VW, int VH)
+        {
+            Xmin = -2;
+            Xmax = 2;
+            Ymin = -2;
+            Ymax = 2;
+            Alf = 4.31;
+            Bet = 4.92;
+            Alf1 = 0;
+            Bet1 = 0;
+            I2 = VW;
+            J2 = VH;
+            bitmap = new Bitmap(VW,VH);
+            myBrush = new SolidBrush(Color.White);
+            body = new Body(0);
+            body0 = new Body(1);
+        }
     }
 }
