@@ -132,5 +132,31 @@ namespace PolyhedronClass
             }
             return Result;
         }
+        private void Ocataedr(double Size)
+        {
+            Vertexs = new double[6][];
+            VertexsT = new double[6][];
+            for(int i = 0; i < 6; i++)
+            {
+                Vertexs[i] = new double[4];
+                VertexsT[i] = new double[4];
+            }
+            Vertexs[0][0] = 0; Vertexs[0][1] = Size; Vertexs[0][2] = 0;
+            Vertexs[1][0] = Size; Vertexs[1][1] = 0; Vertexs[1][2] = 0;
+            Vertexs[2][0] = 0; Vertexs[2][1] = -Size; Vertexs[2][2] = 0;
+            Vertexs[3][0] = -Size; Vertexs[3][1] = 0; Vertexs[3][2] = 0;
+            Vertexs[4][0] = 0; Vertexs[4][1] = 0; Vertexs[4][2] = Size;
+            Vertexs[5][0] = 0; Vertexs[5][1] = 0; Vertexs[5][2] = -Size;
+            for (int i = 0; i < 6; i++)
+                Vertexs[i][3] = 1;
+            Faces = new Face[8];
+            for(int i = 0; i < 8; i++)
+            {
+                Faces[i].p = new int[3];
+                for (int j = 0; j < 3; j++)
+                    Faces[i].p[j] = OctaedrIndex[i, j];
+            }
+            Edges = GetEdges(Faces);
+        }
     }
 }
