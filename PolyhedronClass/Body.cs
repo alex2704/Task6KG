@@ -132,7 +132,7 @@ namespace PolyhedronClass
             }
             return Result;
         }
-        private void Ocataedr(double Size)
+        private void Octaedr(double Size)
         {
             Vertexs = new double[6][];
             VertexsT = new double[6][];
@@ -155,6 +155,31 @@ namespace PolyhedronClass
                 Faces[i].p = new int[3];
                 for (int j = 0; j < 3; j++)
                     Faces[i].p[j] = OctaedrIndex[i, j];
+            }
+            Edges = GetEdges(Faces);
+        }
+        private void Icosahedron(double Size)
+        {
+            Vertexs = new double[12][];
+            VertexsT = new double[12][];
+            for (int i = 0; i < 12; i++)
+            {
+                Vertexs[i] = new double[4];
+                VertexsT[i] = new double[4];
+            }
+            for (int i = 0; i < 12; i++)
+                for (int j = 0; j < 3; j++)
+                    Vertexs[i][j] = Size * IcoData[i, j];
+
+            for (int i = 0; i < 12; i++)
+                Vertexs[i][3] = 1;
+
+            Faces = new Face[20];
+            for (int i = 0; i < 20; i++)
+            {
+                Faces[i].p = new int[3];
+                for (int j = 0; j < 3; j++)
+                    Faces[i].p[j] = IcoIndex[i, j];
             }
             Edges = GetEdges(Faces);
         }
