@@ -236,5 +236,35 @@ namespace PolyhedronClass
             }
             Edges = GetEdges(Faces);
         }
+        private void Hexaedr(double Size)
+        {
+            Vertexs = new double[8][];
+            VertexsT = new double[8][];
+            for (int i = 0; i < 8; i++)
+            {
+                Vertexs[i] = new double[4];
+                VertexsT[i] = new double[4];
+            }
+
+            Vertexs[0][0] = -Size; Vertexs[0][1] = -Size; Vertexs[0][2] = -Size;
+            Vertexs[1][0] = Size; Vertexs[1][1] = -Size; Vertexs[1][2] = -Size;
+            Vertexs[2][0] = Size; Vertexs[2][1] = Size; Vertexs[2][2] = -Size;
+            Vertexs[3][0] = -Size; Vertexs[3][1] = Size; Vertexs[3][2] = -Size;
+            Vertexs[4][0] = -Size; Vertexs[4][1] = -Size; Vertexs[4][2] = Size;
+            Vertexs[5][0] = Size; Vertexs[5][1] = -Size; Vertexs[5][2] = Size;
+            Vertexs[6][0] = Size; Vertexs[6][1] = Size; Vertexs[6][2] = Size;
+            Vertexs[7][0] = -Size; Vertexs[7][1] = Size; Vertexs[7][2] = Size;
+
+            for (int i = 0; i < 8; i++)
+                Vertexs[i][3] = 1;
+            Faces = new Face[6];
+            for (int i = 0; i < 6; i++)
+            {
+                Faces[i].p = new int[4];
+                for (int j = 0; j < 4; j++)
+                    Faces[i].p[j] = HexaedrIndex[i, j];
+            }
+            Edges = GetEdges(Faces);
+        }
     }
 }
