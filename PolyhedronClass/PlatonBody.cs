@@ -49,5 +49,14 @@ namespace PolyhedronClass
             body = new Body(0);
             body0 = new Body(1);
         }
+        private double[] ToVector(double x, double y, double z)
+        {
+            double[] result = new double[4];
+            result[0] = x;
+            result[1] = y;
+            result[2] = z;
+            result[3] = 1;
+            return result;
+        }
     }
 }
