@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6CompGraph", "Task6CompGraph\Task6CompGraph.csproj", "{8F6D31BE-A88E-487F-97C6-519E83629353}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyhedronClass", "PolyhedronClass\PolyhedronClass.csproj", "{905AD05E-8EE9-48BC-B31D-F59A6160226C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8F6D31BE-A88E-487F-97C6-519E83629353}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F6D31BE-A88E-487F-97C6-519E83629353}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F6D31BE-A88E-487F-97C6-519E83629353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{905AD05E-8EE9-48BC-B31D-F59A6160226C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{905AD05E-8EE9-48BC-B31D-F59A6160226C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{905AD05E-8EE9-48BC-B31D-F59A6160226C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{905AD05E-8EE9-48BC-B31D-F59A6160226C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

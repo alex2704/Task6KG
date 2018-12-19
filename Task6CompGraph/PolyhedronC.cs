@@ -6,10 +6,8 @@ using System.Windows.Forms;
 
 namespace Task6CompGraph
 {
-    static class Program
+    static class PolyhedronC
     {
-        public static FormMain formMain;
-        public static FormTools formTools;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -18,10 +16,7 @@ namespace Task6CompGraph
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            formMain = new FormMain();
-            formTools = new FormTools();
-            formTools.Show();
-            Application.Run(new FormMain());
+            Application.Run(new Form1());
         }
     }
 }

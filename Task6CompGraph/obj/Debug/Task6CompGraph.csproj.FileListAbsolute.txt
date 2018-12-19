@@ -1,0 +1,9 @@
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\bin\Debug\Task6CompGraph.exe.config
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\bin\Debug\Task6CompGraph.exe
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\bin\Debug\Task6CompGraph.pdb
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.csprojAssemblyReference.cache
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.Properties.Resources.resources
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.csproj.GenerateResource.cache
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.csproj.CoreCompileInputs.cache
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.exe
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.pdb
