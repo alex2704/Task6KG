@@ -1,0 +1,6 @@
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\PolyhedronClass\bin\Debug\PolyhedronClass.dll
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\PolyhedronClass\bin\Debug\PolyhedronClass.pdb
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\PolyhedronClass\obj\Debug\PolyhedronClass.csprojAssemblyReference.cache
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\PolyhedronClass\obj\Debug\PolyhedronClass.csproj.CoreCompileInputs.cache
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\PolyhedronClass\obj\Debug\PolyhedronClass.dll
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\PolyhedronClass\obj\Debug\PolyhedronClass.pdb

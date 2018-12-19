@@ -36,6 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Вращение многогранника";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);

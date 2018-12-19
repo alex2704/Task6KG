@@ -242,7 +242,6 @@
             this.radioButtonHexaedr.Name = "radioButtonHexaedr";
             this.radioButtonHexaedr.Size = new System.Drawing.Size(90, 21);
             this.radioButtonHexaedr.TabIndex = 5;
-            this.radioButtonHexaedr.TabStop = true;
             this.radioButtonHexaedr.Text = "Гексаэдр";
             this.radioButtonHexaedr.UseVisualStyleBackColor = true;
             this.radioButtonHexaedr.CheckedChanged += new System.EventHandler(this.radioButtonTetraedr_CheckedChanged);

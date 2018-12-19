@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PolyhedronClass
 {
-    public class Face
+    public struct Face
     {
         public int[] p; //номера вершин
         public double[] N; //коэффициенты уравнения плоскости

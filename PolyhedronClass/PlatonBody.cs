@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,7 @@ namespace PolyhedronClass
         public Font myFont = new Font("Courier", 10);
         public static Body body;
         public static Body body0;
+
         public PlatonBody(int VW, int VH)
         {
             Xmin = -2;
@@ -44,7 +46,7 @@ namespace PolyhedronClass
             Bet1 = 0;
             I2 = VW;
             J2 = VH;
-            bitmap = new Bitmap(VW,VH);
+            bitmap = new Bitmap(VW, VH);
             myBrush = new SolidBrush(Color.White);
             body = new Body(0);
             body0 = new Body(1);
@@ -61,9 +63,9 @@ namespace PolyhedronClass
         private double[] VM_Mult(double[] A, double[][] B)
         {
             double[] result = new double[4];
-            for(int j = 0; j < 4; j++)
+            for (int j = 0; j < 4; j++)
             {
-                result[j] = A[0] + B[0][j];
+                result[j] = A[0] * B[0][j];
                 for (int k = 1; k < 4; k++)
                     result[j] += A[k] * B[k][j];
             }
@@ -138,6 +140,224 @@ namespace PolyhedronClass
             Vt = Rotate(Vt, 1, Bet, 0, 0);
             result = new Point(II(Vt[0]), JJ(Vt[1]));
             return result;
+        }
+
+        private double[] Norm(double[] V1, double[] V2, double[] V3)
+        {
+            double[] Result = new double[4];
+            double[] A = new double[4];
+            double[] B = new double[4];
+            A[0] = V2[0] - V1[0]; A[1] = V2[1] - V1[1]; A[2] = V2[2] - V1[2];
+            B[0] = V3[0] - V1[0]; B[1] = V3[1] - V1[1]; B[2] = V3[2] - V1[2];
+            double u = A[1] * B[2] - A[2] * B[1];
+            double v = -A[0] * B[2] + A[2] * B[0];
+            double w = A[0] * B[1] - A[1] * B[0];
+
+            double d = Math.Sqrt(u * u + v * v + w * w);
+            if (d != 0)
+            {
+                Result[0] = u / d;
+                Result[1] = v / d;
+                Result[2] = w / d;
+            }
+            else
+            {
+                Result[0] = 0;
+                Result[1] = 0;
+                Result[2] = 0;
+            }
+            return Result;
+        }
+
+        private void OXYZ(Graphics g)
+        {
+            Point P0, P1;
+            P0 = IJ(ToVector(-3, 0, 0));
+            P1 = IJ(ToVector(3, 0, 0));
+            g.DrawLine(Pens.Silver, P0.X, P0.Y, P1.X, P1.Y);
+            g.DrawString("X", myFont, Brushes.Black, P1);
+            P0 = IJ(ToVector(0, -3, 0));
+            P1 = IJ(ToVector(0, 3, 0));
+            g.DrawLine(Pens.Silver, P0.X, P0.Y, P1.X, P1.Y);
+            g.DrawString("Y", myFont, Brushes.Black, P1);
+            P0 = IJ(ToVector(0, 0, -3));
+            P1 = IJ(ToVector(0, 0, 3));
+            g.DrawLine(Pens.Silver, P0.X, P0.Y, P1.X, P1.Y);
+            g.DrawString("Z", myFont, Brushes.Black, P1);
+        }
+        private void DrawEdge(Graphics g)
+        {
+            int L = body.Edges.Length;
+            for (int i = 0; i < L; i++)
+            {
+                int x1 = II(body.VertexsT[body.Edges[i].p1][0]);
+                int y1 = JJ(body.VertexsT[body.Edges[i].p1][1]);
+                int x2 = II(body.VertexsT[body.Edges[i].p2][0]);
+                int y2 = JJ(body.VertexsT[body.Edges[i].p2][1]);
+                g.DrawLine(Pens.Black, x1, y1, x2, y2);
+            }
+        }
+
+        private void DrawFaces(Graphics g)
+        {
+            int L1 = body.Faces.Length;
+            int L0 = body.Faces[0].p.Length;
+            Point[] w = new Point[L0];
+
+            double[][] Vn = new double[3][];
+            double[][] Wn = new double[3][];
+            for (int i = 0; i < L1; i++)
+            {
+                for (int j = 0; j < L0; j++)
+                {
+                    double[] Vt = body.Vertexs[body.Faces[i].p[j]];
+                    Vt = Rotate(Vt, 0, Alf1, 0, 0);
+                    Vt = Rotate(Vt, 1, Bet1, 0, 0);
+                    if (j <= 2) Vn[j] = Vt;
+                    Vt = Rotate(Vt, 3, 0, Xs, Zs);
+                    Vt = Rotate(Vt, 0, Alf, 0, 0);
+                    Vt = Rotate(Vt, 1, Bet, 0, 0);
+                    w[j].X = II(Vt[0]);
+                    w[j].Y = JJ(Vt[1]);
+                    if (j <= 2) Wn[j] = Vt;
+                }
+                body.Faces[i].N = Norm(Vn[0], Vn[1], Vn[2]);
+                double[] NN = Norm(Wn[0], Wn[1], Wn[2]);
+                double d = Math.Abs(NN[2]);
+                Color col = Color.FromArgb(25, (byte)(Math.Round(255 * d)), 38);
+                SolidBrush br = new SolidBrush(col);
+                if (NN[2] < 0)
+                    g.FillPolygon(br, w);
+            }
+        }
+
+        private void DrawStereo(Graphics g)
+        {
+            Color c = Color.FromArgb(191, 32, 32, 1);
+            Color cB = Color.FromArgb(211,226,38,1);
+            Pen myPenR = new Pen(c, 1);
+            Pen myPenB = new Pen(cB, 1);
+            int L = body.Edges.Length;
+
+            g.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+
+            for (int i = 0; i < L; i++)
+            {
+                Edge e = body.Edges[i];
+                double[] V1 = Rotate(body.VertexsT[e.p1], 1, AnglStereo, 0, 0);
+                double[] V2 = Rotate(body.VertexsT[e.p2], 1, AnglStereo, 0, 0);
+                g.DrawLine(myPenR, II(V1[0]), JJ(V1[1]), II(V2[0]), JJ(V2[1]));
+
+                V1 = Rotate(body.VertexsT[e.p1], 1, -AnglStereo, 0, 0);
+                V2 = Rotate(body.VertexsT[e.p2], 1, -AnglStereo, 0, 0);
+                g.DrawLine(myPenB, II(V1[0]), JJ(V1[1]), II(V2[0]), JJ(V2[1]));
+            }
+
+            Font f = new Font("Courier", 12);
+            SolidBrush br = new SolidBrush(myPenR.Color);
+            SolidBrush bB = new SolidBrush(myPenB.Color);
+            L = body.VertexsT.Length;
+            for (int i = 0; i < L; i++)
+            {
+                double[] V1 = Rotate(body.VertexsT[i], 1, AnglStereo, 0, 0);
+                g.DrawString(i.ToString(), f, br, II(V1[0]), JJ(V1[1]));
+                V1 = Rotate(body.VertexsT[i], 1, -AnglStereo, 0, 0);
+                g.DrawString(i.ToString(), f, bB, II(V1[0]), JJ(V1[1]));
+            }
+            f.Dispose();
+        }
+        public void DrawBody(Graphics g)
+        {
+            int L;
+            if ((flEdge == 0) | (flEdge == 2))
+            {
+                L = body.Vertexs.Length;
+                for (int i = 0; i < L; i++)
+                {
+                    body.VertexsT[i] = Rotate(body.Vertexs[i], 0, Alf1, 0, 0);
+                    body.VertexsT[i] = Rotate(body.VertexsT[i], 1, Bet1, 0, 0);
+                    body.VertexsT[i] = Rotate(body.VertexsT[i], 3, 0, Xs, Zs);
+                    body.VertexsT[i] = Rotate(body.VertexsT[i], 0, Alf, 0, 0);
+                    body.VertexsT[i] = Rotate(body.VertexsT[i], 1, Bet, 0, 0);
+                }
+            }
+            switch (flEdge)
+            {
+                case 0:  // Edges
+                    DrawEdge(g);
+                    break;
+                case 1:  // faces
+                    DrawFaces(g);
+                    break;
+                case 2: // stereo
+                    DrawStereo(g);
+                    break;
+            }
+        }
+        public void Draw()
+        {
+            I2 = bitmap.Width;
+            J2 = bitmap.Height;
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                Color c1;
+                if (flEdge == 2)
+                    c1 = Color.FromArgb(0, 0, 0);
+                else
+                    c1 = Color.FromArgb(255, 255, 255);
+                g.Clear(c1);
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                if (visibleOXYZ)
+                    OXYZ(g);
+                if (visiblePoint)
+                    DrawPerspective(g);
+                DrawBody(g);
+            }
+        }
+        public void ChangeWindowXY(int u, int v, int Delta)
+        {
+            double coeff;
+            double x = XX(u);
+            double y = YY(v);
+            if (Delta < 0)
+                coeff = 1.03;
+            else
+                coeff = 0.97;
+            Xmin = x - (x - Xmin) * coeff;
+            Xmax = x + (Xmax - x) * coeff;
+            Ymin = y - (y - Ymin) * coeff;
+            Ymax = y + (Ymax - y) * coeff;
+        }
+        //Вращение вокруг векторов
+        public void SetAngle(double x, double y, int rotateVec, bool flRotate)
+        {
+            if (flRotate)
+            {
+                switch (rotateVec)
+                {
+                    case 0:
+                        Alf = Math.Atan2(y, x);
+                        Bet = Math.Sqrt((x / 10) * (x / 10) + (y / 10) * (y / 10));
+                        break;
+                    case 1:
+                        Alf1 = Math.Atan2(x, y);
+                        Bet1 = Math.Sqrt((x / 10) * (x / 10) + (y / 10) * (y / 10));
+                        break;
+                    case 2:
+                        Alf = Math.Atan2(y, x);
+                        Bet = Math.Sqrt((x / 10) * (x / 10) + (y / 10) * (y / 10));
+                        break;
+                }
+            }
+            else
+            {
+                Alf1 = Math.Atan2(y, x);
+                Bet1 = Math.Sqrt((x / 10) * (x / 10) + (y / 10) * (y / 10));
+            }
+        }
+        private void DrawPerspective(Graphics g)//перспектива
+        {
+
         }
     }
 }

@@ -79,7 +79,7 @@ namespace Task6CompGraph
 
         private void OXYZ_visible_CheckedChanged(object sender, EventArgs e)
         {
-            PlatonBody.visibleOXYZ = checkBox1.Checked;
+            PlatonBody.visibleOXYZ = OXYZ_visible.Checked;
             FormMain.MyDraw();
         }
 

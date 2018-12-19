@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PolyhedronClass
 {
-    public class Edge
+    public struct Edge
     {
         public int p1,p2;
     }

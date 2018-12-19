@@ -7,3 +7,8 @@ C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРО
 C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.csproj.CoreCompileInputs.cache
 C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.exe
 C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.pdb
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.FormMain.resources
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.FormTools.resources
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\bin\Debug\PolyhedronClass.dll
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\bin\Debug\PolyhedronClass.pdb
+C:\Users\bakul\OneDrive\Рабочий стол\АТТЕСТАЦИЯ ПО ПРОГАММИРОВАНИЮ\Компьютерная графика\3 аттестация\Task6CompGraph\Task6CompGraph\obj\Debug\Task6CompGraph.csproj.CopyComplete

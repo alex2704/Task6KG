@@ -298,5 +298,6 @@ namespace PolyhedronClass
             Faces[2].p[0] = 0; Faces[2].p[1] = 2; Faces[2].p[2] = 3;
             Faces[3].p[0] = 0; Faces[3].p[1] = 3; Faces[3].p[2] = 1;
         }
+        
     }
 }
