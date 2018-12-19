@@ -112,5 +112,32 @@ namespace PolyhedronClass
             }
             return VM_Mult(V, M);
         }
+        private int II(double x)
+        {
+            return (int)Math.Round((x - Xmin) * I2 / (Xmax - Xmin));
+        }
+
+        private int JJ(double y)
+        {
+            return (int)Math.Round((y - Ymax) * J2 / (Ymin - Ymax));
+        }
+
+        private double XX(int I)
+        {
+            return Xmin + (Xmax - Xmin) * I / I2;
+        }
+
+        private double YY(int J)
+        {
+            return Ymax + (Ymin - Ymax) * J / J2;
+        }
+        private Point IJ(double[] Vt)
+        {
+            Point result;
+            Vt = Rotate(Vt, 0, Alf, 0, 0);
+            Vt = Rotate(Vt, 1, Bet, 0, 0);
+            result = new Point(II(Vt[0]), JJ(Vt[1]));
+            return result;
+        }
     }
 }
