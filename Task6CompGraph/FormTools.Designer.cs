@@ -56,6 +56,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.TPBtn = new System.Windows.Forms.RadioButton();
+            this.OPbtn = new System.Windows.Forms.RadioButton();
+            this.onePointScroll = new System.Windows.Forms.HScrollBar();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,7 +81,7 @@
             // 
             // firstPerspectivePoint_sb
             // 
-            this.firstPerspectivePoint_sb.Location = new System.Drawing.Point(18, 55);
+            this.firstPerspectivePoint_sb.Location = new System.Drawing.Point(21, 163);
             this.firstPerspectivePoint_sb.Name = "firstPerspectivePoint_sb";
             this.firstPerspectivePoint_sb.Size = new System.Drawing.Size(294, 21);
             this.firstPerspectivePoint_sb.TabIndex = 0;
@@ -122,6 +125,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.onePointScroll);
+            this.tabPage3.Controls.Add(this.OPbtn);
+            this.tabPage3.Controls.Add(this.TPBtn);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.secodPerspectivePoint_sb);
             this.tabPage3.Controls.Add(this.firstPerspectivePoint_sb);
@@ -135,7 +141,7 @@
             // 
             // secodPerspectivePoint_sb
             // 
-            this.secodPerspectivePoint_sb.Location = new System.Drawing.Point(18, 103);
+            this.secodPerspectivePoint_sb.Location = new System.Drawing.Point(21, 204);
             this.secodPerspectivePoint_sb.Name = "secodPerspectivePoint_sb";
             this.secodPerspectivePoint_sb.Size = new System.Drawing.Size(294, 21);
             this.secodPerspectivePoint_sb.TabIndex = 1;
@@ -408,6 +414,36 @@
             this.tabControl1.Size = new System.Drawing.Size(377, 312);
             this.tabControl1.TabIndex = 1;
             // 
+            // TPBtn
+            // 
+            this.TPBtn.AutoSize = true;
+            this.TPBtn.Location = new System.Drawing.Point(21, 127);
+            this.TPBtn.Name = "TPBtn";
+            this.TPBtn.Size = new System.Drawing.Size(208, 21);
+            this.TPBtn.TabIndex = 3;
+            this.TPBtn.Text = "двухточечная перспектива";
+            this.TPBtn.UseVisualStyleBackColor = true;
+            this.TPBtn.CheckedChanged += new System.EventHandler(this.OPbtn_CheckedChanged);
+            // 
+            // OPbtn
+            // 
+            this.OPbtn.AutoSize = true;
+            this.OPbtn.Location = new System.Drawing.Point(21, 37);
+            this.OPbtn.Name = "OPbtn";
+            this.OPbtn.Size = new System.Drawing.Size(212, 21);
+            this.OPbtn.TabIndex = 4;
+            this.OPbtn.Text = "одноточечная перспектива";
+            this.OPbtn.UseVisualStyleBackColor = true;
+            this.OPbtn.CheckedChanged += new System.EventHandler(this.OPbtn_CheckedChanged);
+            // 
+            // onePointScroll
+            // 
+            this.onePointScroll.Location = new System.Drawing.Point(21, 65);
+            this.onePointScroll.Name = "onePointScroll";
+            this.onePointScroll.Size = new System.Drawing.Size(294, 21);
+            this.onePointScroll.TabIndex = 5;
+            this.onePointScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.onePointScroll_Scroll);
+            // 
             // FormTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -467,5 +503,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.HScrollBar onePointScroll;
+        private System.Windows.Forms.RadioButton OPbtn;
+        private System.Windows.Forms.RadioButton TPBtn;
     }
 }

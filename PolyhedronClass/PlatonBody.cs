@@ -27,6 +27,7 @@ namespace PolyhedronClass
         public static bool flRotate = false;
         public static byte flEdge = 0;
         double AnglStereo = 0.010;
+        public static bool t = false;
 
         public Bitmap bitmap;
         public SolidBrush myBrush;

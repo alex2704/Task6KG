@@ -22,6 +22,9 @@ namespace Task6CompGraph
         {
             InitializeComponent();
             rotateX_rb.Checked = true;
+            firstPerspectivePoint_sb.Enabled = false;
+            secodPerspectivePoint_sb.Enabled = false;
+            onePointScroll.Enabled = false;
         }
 
         private void FormTools_Load(object sender, EventArgs e)
@@ -113,6 +116,30 @@ namespace Task6CompGraph
         private void secodPerspectivePoint_sb_Scroll(object sender, ScrollEventArgs e)
         {
             PlatonBody.Zs = secodPerspectivePoint_sb.Value / 100d;
+            FormMain.MyDraw();
+        }
+
+        private void OPbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            PlatonBody.t = TPBtn.Checked;
+            if (TPBtn.Checked)
+            {
+                firstPerspectivePoint_sb.Enabled = true;
+                secodPerspectivePoint_sb.Enabled = true;
+                onePointScroll.Enabled = false;
+            }
+            else
+            {
+                firstPerspectivePoint_sb.Enabled = false;
+                secodPerspectivePoint_sb.Enabled = false;
+                onePointScroll.Enabled = true;
+            }
+            FormMain.MyDraw();
+        }
+
+        private void onePointScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+            PlatonBody.Zs = onePointScroll.Value / 100d;
             FormMain.MyDraw();
         }
     }
