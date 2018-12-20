@@ -357,7 +357,52 @@ namespace PolyhedronClass
         }
         private void DrawPerspective(Graphics g)//перспектива
         {
+            Pen myPen = new Pen(Color.Gray);
+            myPen.DashStyle = DashStyle.Dash;
+            int L = body0.Vertexs.Length;
+            for (int i = 0; i < L; i++)
+            {
+                body0.VertexsT[i] = Rotate(body0.Vertexs[i], 3, 0, Xs, Zs);
+                body0.VertexsT[i] = Rotate(body0.VertexsT[i], 0, Alf, 0, 0);
+                body0.VertexsT[i] = Rotate(body0.VertexsT[i], 1, Bet, 0, 0);
+            }
+            int L0 = body0.Edges.Length;
+            for (int i = 0; i < L0; i++)
+            {
+                int x1 = II(body0.VertexsT[body0.Edges[i].p1][0]);
+                int y1 = JJ(body0.VertexsT[body0.Edges[i].p1][1]);
+                int x2 = II(body0.VertexsT[body0.Edges[i].p2][0]);
+                int y2 = JJ(body0.VertexsT[body0.Edges[i].p2][1]);
+                g.DrawLine(myPen, x1, y1, x2, y2);
+            }
 
+            if (Xs != 0)
+            {
+                double[] V1 = new double[4];
+                V1[1] = 1 / Xs; V1[0] = 0; V1[2] = 0; V1[3] = 1;
+                V1 = Rotate(V1, 0, Alf, 0, 0);
+                V1 = Rotate(V1, 1, Bet, 0, 0);
+                int u = II(V1[0]); int v = JJ(V1[1]);
+                for (int i = 0; i < 6; i++)
+                    if ((i != 2) && (i != 3))
+                        g.DrawLine(myPen, u, v,
+                            II(body0.VertexsT[i][0]),
+                            JJ(body0.VertexsT[i][1]));
+                g.FillRectangle(Brushes.Black, u - 2, v - 2, 4, 4);
+            }
+            if (Zs != 0)
+            {
+                double[] V1 = new double[4];
+                V1[1] = 0; V1[0] = 0; V1[2] = 1 / Zs; V1[3] = 1;
+                V1 = Rotate(V1, 0, Alf, 0, 0);
+                V1 = Rotate(V1, 1, Bet, 0, 0);
+                int u = II(V1[0]); int v = JJ(V1[1]);
+                for (int i = 0; i < 4; i++)
+                    g.DrawLine(myPen, u, v,
+                        II(body0.VertexsT[i][0]),
+                        JJ(body0.VertexsT[i][1]));
+                g.FillRectangle(Brushes.Black, u - 2, v - 2, 4, 4);
+            }
         }
     }
 }
